@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<table *ngIf="product" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="product.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>PART#</th>
+        <td><input [(ngModel)]="product.partNbr" type="text" size="30"></td>
+    </tr>
+    <tr>
+        <th>NAME</th>
+        <td><input [(ngModel)]="product.name" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>PRICE</th>
+        <td><input [(ngModel)]="product.price" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>UNIT</th>
+        <td><input [(ngModel)]="product.unit" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>VENDOR</th>
+        <td><select [(ngModel)]="product.vendorId">
+            <option *ngFor="let v of vendors | sort:sortCol:sortAsc" value={{v.id}}>{{v.name}}</option>
+        </select></td>
+    </tr>
+    <tr>
+        <button class="btn btn-success" (click)="save()">SUBMIT</button>
+    </tr>
+</table>

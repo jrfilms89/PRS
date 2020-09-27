@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<table *ngIf="request" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="request.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>USER</th>
+        <td><input [(ngModel)]="request.user.username" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>DESCRIPTION</th>
+        <td><input [(ngModel)]="request.description" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>JUSTIFICATION</th>
+        <td><input [(ngModel)]="request.justification" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>DELIVERY MODE</th>
+        <td><input [(ngModel)]="request.deliveryMode" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>TOTAL</th>
+        <td><input [(ngModel)]="request.total" type="number" size="12" disabled></td>
+    </tr>
+    <tr *ngIf="isReviewer" >
+        <th>STATUS</th>
+        <td><select [(ngModel)]="request.status">
+            <option value="APPROVED">APPROVED</option>
+            <option value="REJECTED">REJECTED</option>
+        </select></td>
+    </tr>
+    <tr *ngIf="isReviewer" >
+        <th>REJECTION REASON</th>
+        <td><input [(ngModel)]="request.rejectionReason" type="text" size="20"></td>
+    </tr>
+    <tr >
+        <button class="btn btn-success" (click)="edit()">Submit</button>
+        <button class="btn btn-danger" (click)="verify()">Delete</button>
+        <button *ngIf="showDelete" class="btn btn-danger" (click)="delete()">Verify</button>
+    </tr>
+</table>

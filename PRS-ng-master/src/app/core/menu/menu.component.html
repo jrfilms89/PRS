@@ -1,0 +1,11 @@
+<nav>
+    <div class="menuitems">
+            <img id="logo" src="assets\IconSm.png" alt="">
+        <ul>
+            <li *ngFor="let m of menus">
+                <a routerLink="{{m.route}}">{{m.display}}</a>
+            </li>
+            <li class="login"><a routerLink="/users/login">Log Out</a></li>
+        </ul>
+    </div>
+</nav>

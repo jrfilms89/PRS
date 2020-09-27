@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<div id="component">
+    <a routerLink="/requests/list">Back to list</a>
+    <table *ngIf="requestitem" class="table table-sm">
+        <tr>
+            <th>ID</th>
+            <td><input [(ngModel)]="requestitem.id" type="number" size="5" disabled></td>
+        </tr>
+        <tr>
+            <th>PRODUCT</th>
+            <td>
+                <select [(ngModel)]="requestitem.productId">
+                    <option *ngFor="let p of products | sort:sortCol:sortAsc" type="number" value={{p.id}}>{{p.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>QUANTITY</th>
+            <td><input [(ngModel)]="requestitem.quantity" type="number" size="15"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="edit(requestitem.requestId)" class="btn btn-primary">Edit</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,92 @@
+html{
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(#909090, #606060);
+}
+input, select, option{
+    background-color: whitesmoke;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+input{
+    border-bottom: 1px solid #303030 ;
+}
+a{
+    cursor: pointer;
+    
+}
+a:hover{
+    text-decoration: none;
+    color: rgb(0, 255, 170);
+}
+#BG{
+    color: #606060;
+    position: fixed;
+    z-index: -10;
+    top: -30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    margin: none;
+    font-size: 100vh;
+    font-weight: bolder;
+}
+.table{
+    margin: 1rem;
+    justify-self: center;
+    width: 98vw;
+}
+.btn-success{
+    margin-left: 10px;
+    background-color: rgb(1, 218, 164);
+    border: none;
+    color: #303030;
+}
+.btn-success:hover{
+    background-color: rgb(0, 255, 170);
+    color: #303030;
+}
+.btn-primary{
+    font-size: 18px;
+    color: #303030;
+    background-color: rgb(2, 219, 219);
+    border: none;
+    margin: 8px 10px;
+}
+.btn-primary:hover{
+    color: #404040;
+    background-color: rgb(0, 255, 255);
+    border: none;
+}
+.btn-danger{
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.sortHeads:hover{
+    color: rgb(0, 238, 159);
+    cursor: pointer;
+}
+.search{
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    color: #303030;
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+    background: 
+    linear-gradient(#404040, #404040) center bottom 1px /calc(100% - 3px) 2px no-repeat;
+}
+.pageTitle{
+    margin-left: 1rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: #303030;
+}

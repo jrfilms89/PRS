@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+<button routerLink="/users/create" class="btn btn-primary">Create</button>
+<table class="table table-dark">
+    <thead>
+        <th (click)="sort('id')" class="sortHeads">ID</th>
+        <th (click)="sort('username')" class="sortHeads">USERNAME</th>
+        <th (click)="sort('lastname')" class="sortHeads">NAME</th>
+        <th (click)="sort('phone')" class="sortHeads">PHONE</th>
+        <th (click)="sort('email')" class="sortHeads">EMAIL</th>
+        <th (click)="sort('isReviewer')" class="sortHeads">Privileges?</th>
+        <th>ACTIONS</th>
+    </thead>
+    <tbody *ngFor="let u of users | userSearch:searchCriteria | sort:sortCol:sortAsc">
+        <td>{{u.id}}</td>
+        <td>{{u.username}}</td>
+        <td>{{u.lastname}}, {{u.firstname}}</td>
+        <td>{{u.phone}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.isReviewer}} | {{u.isAdmin}}</td>
+        <td>
+            <a routerLink="/users/detail/{{u.id}}">Detail</a> | 
+            <a routerLink="/users/edit/{{u.id}}">Edit</a>
+        </td>
+    </tbody>
+    <!-- <ngb-pagination [pageSize] = "25" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</table>

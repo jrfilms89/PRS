@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<button *ngIf="request && myRequest" routerLink="/requestitems/create/{{request.id}}" class="btn btn-primary">Add Product</button>
+<span><a routerLink="/requests/list"> Back to List</a></span>
+<table *ngIf="request" class="table table-dark">
+    <thead>
+        <th>ID</th>
+        <th>DESCRIPTION</th>
+        <th>STATUS</th>
+        <th>TOTAL</th>
+        <th>USER</th>
+        <th>ACTION</th>
+    </thead>
+    <tbody>
+        <td>{{request.id}}</td>
+        <td>{{request.description}}</td>
+        <td>{{request.status}}</td>
+        <td>{{request.total | currency}}</td>
+        <td>{{request.user.username}}</td>
+        <td><a *ngIf="myRequest" (click)="review(request)" class="clickable">Review</a></td>
+    </tbody>
+    <!-- <ngb-pagination [pageSize] = "25" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</table>
+<table *ngIf="request" class="table table-dark">
+    <thead>
+        <th>ID</th>
+        <th>PRODUCT</th>
+        <th>QUANTITY</th>
+        <th>PRICE</th>
+        <th>SUBTOTAL</th>
+        <th>ACTIONS</th>
+    </thead>
+    <tbody *ngFor="let r of request.requestlines">
+        <td>{{r.id}}</td>
+        <td>{{r.product.name}}</td>
+        <td>{{r.quantity}}</td>
+        <td>{{r.product.price | currency}}</td>
+        <td>{{r.product.price * r.quantity | currency}}</td>
+        <td *ngIf="myRequest"><a class="clickable" routerLink="/requestitems/edit/{{r.id}}">Edit</a> | 
+        <a class="clickable" (click)="verify()">Delete</a>
+        <a class="clickable" *ngIf="showDelete" (click)="delete(r.id, request.id)"> | Confirm</a></td>
+    </tbody>
+</table>

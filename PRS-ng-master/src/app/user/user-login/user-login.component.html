@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="box">
+        <div class="logInTitle form-group">
+            <label>
+                <img src="assets/Icon.png">
+                <h2>PRS || </h2>
+                <h3>Log In</h3>
+            </label>
+        </div>
+        <div class="info">
+        <div class="form-group">
+            <label>Username: </label>
+            <input class="inputWidth" [(ngModel)]="username" type="text" placeholder="Enter Username" size=45>
+            <span class="underline"></span>
+        </div>
+        <div class="form-group">
+            <label>Password: </label>
+            <input class="inputWidth" [(ngModel)]="password" type="password" placeholder="Password" size="45">
+            <label id="errorMsg" *ngIf="error">Username and Password are incorrect</label>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" (click)="signIn(username, password)" class="btn btn-primary btn signIn">Sign
+                In</button>
+            <div class="logBtns">
+                <button class="btn btn-primary log" (click)="adminLogin()">Admin</button>
+                <span><button class="btn btn-primary log" (click)="reviewerLogin()">Reviewer</button></span>
+                <span><button class="btn btn-primary log" (click)="userLogin()">User</button></span>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

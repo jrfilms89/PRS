@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+<!-- <span><button class="btn btn-primary">Display by Image</button></span> -->
+<button class="btn btn-primary create" routerLink="/products/create">Create</button>
+<table class="table table-dark">
+    <thead>
+        <th (click)="sort('id')" class="sortHeads">ID</th>
+        <th (click)="sort('partNbr')" class="sortHeads">Part#</th>
+        <th (click)="sort('name')" class="sortHeads">NAME</th>
+        <th (click)="sort('price')" class="sortHeads">PRICE</th>
+        <th (click)="sort('unit')" class="sortHeads">UNIT</th>
+        <th (click)="sort('vendorName')" class="sortHeads">VENDOR</th>
+        <th>ACTIONS</th>
+    </thead>
+    <tbody *ngFor="let p of products | productSearch:searchCriteria | sort:sortCol:sortAsc">
+        <td>{{p.id}}</td>
+        <td>{{p.partNbr}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.unit}}</td>
+        <td>{{p.vendor.name}}</td>
+        <td>
+            <a routerLink="/products/detail/{{p.id}}">Detail</a> | 
+            <a routerLink="/products/edit/{{p.id}}">Edit</a>
+        </td>
+    </tbody>
+    <!-- <ngb-pagination [pageSize] = "25" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</table>

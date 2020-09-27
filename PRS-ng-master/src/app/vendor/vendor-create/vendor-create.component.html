@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<span><a routerLink="/vendors/list">| Back to List</a></span>
+<table *ngIf="vendor" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="vendor.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>CODE</th>
+        <td><input [(ngModel)]="vendor.code" type="text" size="6"></td>
+    </tr>
+    <tr>
+        <th>NAME</th>
+        <td><input [(ngModel)]="vendor.name" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>ADDRESS</th>
+        <td><input [(ngModel)]="vendor.address" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>CITY</th>
+        <td><input [(ngModel)]="vendor.city" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>STATE</th>
+        <td><input [(ngModel)]="vendor.state" type="text" size="2"></td>
+    </tr>
+    <tr>
+        <th>ZIPCODE</th>
+        <td><input [(ngModel)]="vendor.zipCode" type="text" size="9"></td>
+    </tr>
+    <tr>
+        <th>PHONE</th>
+        <td><input [(ngModel)]="vendor.phone" type="text" size="12"></td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td><input [(ngModel)]="vendor.email" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <button class="btn btn-success" (click)="save()">SUBMIT</button>
+    </tr>
+</table>

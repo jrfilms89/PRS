@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<input class="search"[(ngModel)]="searchCriteria" type="text" placeholder="Search">
+<button routerLink="/vendors/create" class="btn btn-primary">Create</button>
+<table class="table table-dark">
+    <thead>
+        <th (click)="sort('id')" class="sortHeads">ID</th>
+        <th (click)="sort('code')" class="sortHeads">CODE</th>
+        <th (click)="sort('name')" class="sortHeads">NAME</th>
+        <th (click)="sort('address')" class="sortHeads">ADDRESS</th>
+        <th (click)="sort('state')" class="sortHeads">CITY & STATE</th>
+        <th (click)="sort('zipCode')" class="sortHeads">ZIPCODE</th>
+        <th (click)="sort('phone')" class="sortHeads">PHONE</th>
+        <th (click)="sort('email')" class="sortHeads">EMAIL</th>
+        <th>ACTIONS</th>
+    </thead>
+    <tbody *ngFor="let v of vendors | vendorSearch:searchCriteria | sort:sortCol:sortAsc">
+        <td>{{v.id}}</td>
+        <td>{{v.code}}</td>
+        <td>{{v.name}}</td>
+        <td>{{v.address}}</td>
+        <td>{{v.city}}, {{v.state}}</td>
+        <td>{{v.zipCode}}</td>
+        <td>{{v.phone}}</td>
+        <td>{{v.email}}</td>
+        <td>
+            <a routerLink="/vendors/detail/{{v.id}}">Detail</a> | 
+            <a routerLink="/vendors/edit/{{v.id}}">Edit</a>
+        </td>
+    </tbody>
+    <!-- <ngb-pagination [pageSize] = "25" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</table>

@@ -1,0 +1,13 @@
+.clickable{
+    color: #007BFF;
+}
+.btn-primary{
+    background-color: rgb(0, 212, 212);
+    color: #303030;
+}
+.btn-primary:hover{
+    background-color: rgb(0, 255, 170);
+}
+.btn-primary:active{
+    background-color: rgb(59, 255, 255);
+}

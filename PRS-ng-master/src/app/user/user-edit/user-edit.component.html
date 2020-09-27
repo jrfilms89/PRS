@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<span><a routerLink="/users/list">| Back to List</a></span>
+<table *ngIf="user" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="user.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>FIRSTNAME</th>
+        <td><input [(ngModel)]="user.firstname" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>LASTNAME</th>
+        <td><input [(ngModel)]="user.lastname" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>USERNAME</th>
+        <td><input [(ngModel)]="user.username" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>PASSWORD</th>
+        <td><input [(ngModel)]="user.password" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>PHONE</th>
+        <td><input [(ngModel)]="user.phone" type="text" size="12"></td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td><input [(ngModel)]="user.email" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>REVIEWER?</th>
+        <td><input [(ngModel)]="user.isReviewer" type="checkbox" size="5"></td>
+    </tr>
+    <tr>
+        <th>ADMIN?</th>
+        <td><input [(ngModel)]="user.isAdmin" type="checkbox" size="5"></td>
+    </tr>
+</table>
+<button class="btn btn-success" (click)="edit()">Submit</button>
+<button class="btn btn-danger" (click)="verify()">Delete</button>
+<button *ngIf="showDelete" class="btn btn-danger" (click)="delete()">Verify</button>

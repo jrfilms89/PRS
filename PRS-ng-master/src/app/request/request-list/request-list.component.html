@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+<button class="btn btn-primary" routerLink="{{createPage}}">Create</button>
+<table class="table table-dark">
+    <thead>
+        <th (click)="sort('id')" class="sortHeads">ID</th>
+        <th (click)="sort('description')" class="sortHeads">DESCRIPTION</th>
+        <th (click)="sort('justification')" class="sortHeads">JUSTIFICATION</th>
+        <th (click)="sort('rejectionReason')" class="sortHeads">REJECTION REASON</th>
+        <th (click)="sort('deliveryMode')" class="sortHeads">DELIVERY MODE</th>
+        <th (click)="sort('status')" class="sortHeads">STATUS</th>
+        <th (click)="sort('total')" class="sortHeads">TOTAL</th>
+        <th (click)="sort('user.name')" class="sortHeads">USER</th>
+        <th>ACTIONS</th>
+    </thead>
+    <tbody *ngFor="let r of requests | requestSearch:searchCriteria | sort:sortCol:sortAsc">
+        <td>{{r.id}}</td>
+        <td>{{r.description}}</td>
+        <td>{{r.justification}}</td>
+        <td>{{r.rejectionReason}}</td>
+        <td>{{r.deliveryMode}}</td>
+        <td>{{r.status}}</td>
+        <td>{{r.total}}</td>
+        <td>{{r.user.username}}</td>
+        <td>
+            <a *ngIf="isReviewer || isAdmin" routerLink="/requests/detail/{{r.id}}">Detail</a> | 
+            <a routerLink="/requests/lines/{{r.id}}">Lines</a>
+        </td>
+    </tbody>
+    <!-- <ngb-pagination [pageSize] = "25" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</table>

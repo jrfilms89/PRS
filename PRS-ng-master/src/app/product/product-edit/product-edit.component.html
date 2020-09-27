@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<table *ngIf="product" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="product.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>PART#</th>
+        <td><input [(ngModel)]="product.partNbr" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>NAME</th>
+        <td><input [(ngModel)]="product.name" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>PRICE</th>
+        <td><input [(ngModel)]="product.price" type="number" size="20"></td>
+    </tr>
+    <tr>
+        <th>UNIT</th>
+        <td><input [(ngModel)]="product.unit" type="text" size="20"></td>
+    </tr>
+    <tr>
+        <th>PHOTO</th>
+        <td><input [(ngModel)]="product.photoPath" type="text" size="30"></td>
+        <img src="{{product.photoPath}}" alt="N/A" srcset="">
+    </tr>
+    <tr>
+        <th>VENDOR</th>
+        <td><select [(ngModel)]="product.vendorId">
+            <option *ngFor="let v of vendors" value={{v.id}}>{{v.name}}</option>
+        </select></td>
+    </tr>
+    <tr >
+        <button class="btn btn-success" (click)="edit()">Submit</button>
+        <button class="btn btn-danger" (click)="verify()">Delete</button>
+        <button *ngIf="showDelete" class="btn btn-danger" (click)="delete()">Verify</button>
+    </tr>
+</table>

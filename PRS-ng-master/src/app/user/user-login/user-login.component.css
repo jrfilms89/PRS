@@ -1,0 +1,84 @@
+label{
+    margin-right: 10px;
+    font-weight: bold;
+}
+input{
+    margin: 0 10px;
+    outline: none;
+}
+div{
+    display: flex;
+    flex-wrap: wrap;
+}
+div div{
+    justify-content: space-between;
+}
+h2, h3, h5{
+    display: inline;
+}
+h5{
+    cursor: pointer;
+    color: #007BFF;
+}
+#errorMsg{
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+.container{
+    min-height: 100vh;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: min-content;
+    background-color: whitesmoke;
+    border: 2px solid turquoise;
+}
+.log{
+    color: #303030;
+    background-color: teal;
+    font-weight: bold;
+    width: 8em;
+}
+.logBtns{
+    display: flex;
+    justify-content: space-between;
+
+}
+.inputWidth{
+    box-sizing: content-box;
+    width: 30vw;
+}
+.signIn{
+    color: #404040;
+    background-color: rgb(0, 238, 159);
+    width: 33vw;
+    font-weight: bold;
+}
+.signIn:hover{
+    background-color: rgb(0, 255, 149);
+}
+.create:hover{
+    background-color: rgb(2, 158, 158);
+}
+.divider{
+    width: 7rem;
+    height: auto;
+    display: inline-block;
+}
+.form-group{
+    display:inline-block;
+    margin: 10px 10px;
+}
+.logInTitle{
+    display: flex;
+    margin-left: .5rem;
+}

@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<label class="pageTitle">{{pageTitle}}</label>
+<span><a routerLink="/requests/list"> Back to List</a></span>
+<table *ngIf="request" class="table table-sm">
+    <tr>
+        <th>ID</th>
+        <td><input [(ngModel)]="request.id" type="text" size="5" disabled></td>
+    </tr>
+    <tr>
+        <th>DESCRIPTION</th>
+        <td><input [(ngModel)]="request.description" type="text" size="20" disabled></td>
+    </tr>
+    <tr>
+        <th>JUSTIFICATION</th>
+        <td><input [(ngModel)]="request.justification" type="text" size="20" disabled></td>
+    </tr>
+    <tr>
+        <th>REJECTION REASON</th>
+        <td><input [(ngModel)]="request.rejectionReason" type="text" size="20" disabled></td>
+    </tr>
+    <tr>
+        <th>DELIVERY MODE</th>
+        <td><input [(ngModel)]="request.deliveryMode" type="text" size="20" disabled></td>
+    </tr>
+    <tr>
+        <th>STATUS</th>
+        <td><input [(ngModel)]="request.status" type="text" size="12" disabled></td>
+    </tr>
+    <tr>
+        <th>TOTAL</th>
+        <td><input [(ngModel)]="request.total" type="number" size="12" disabled></td>
+    </tr>
+    <tr>
+        <th>USER</th>
+        <td><input [(ngModel)]="request.user.username" type="text" size="20" disabled></td>
+    </tr>
+</table>
